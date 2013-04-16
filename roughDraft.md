@@ -38,4 +38,6 @@ Generic Types in java fixed the problem that if programmers wanted to have a cla
 
 
 Testing this fense<br>
-'~~~~~' int code() '~~~~~'
+~~~java
+ int code()
+~~~
