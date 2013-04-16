@@ -37,5 +37,5 @@ Generic Types in java fixed the problem that if programmers wanted to have a cla
 25. }
 
 
-Testing this fense
-'~~~~~' int code()
+Testing this fense<br>
+'~~~~~' int code() '~~~~~'
