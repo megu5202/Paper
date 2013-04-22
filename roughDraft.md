@@ -97,4 +97,4 @@ class tuple1<A,B>
 }
 ~~~
 
-This allows this class to be able to keep any tuple of type(x) = A and type(y) = B. So instead of keeping track of 64 classes. We just need to keep track of 1.
+This allows this class to be able to keep any tuple of type(x) = A and type(y) = B. So instead of keeping track of 64 classes. We just need to keep track of 1. The people at sun microsystems relized the need for this change and so they submitted the JSR. After going through the process "Still need to know the process" the vote passed unanimisly and java officially added generic types to the programming language on September 30, 2004. 
