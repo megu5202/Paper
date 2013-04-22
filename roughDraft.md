@@ -119,9 +119,14 @@ extra syntax required to use them. Some animosity stemmed from the potential abu
 difference being that Java does not allow default parameters or typedefs, which would make generics even more verbose.
 
 In addition to the extra verbosity, another main complaint of generics is that the type information is lost at compile time. The issue is that when there is no runtime
-enforcement of these types.
+enforcement of these types, there can be issues with runtime binding if, for example, a binary file was hot swapped with a different type, there would be no way
+to check it during runtime, and this could cause some unexplainable errors.
 
-Arguments For?
+Another main complaint stemming from the use of generics is that they were never well defined since it is impossible to use primitive data types with them. Since Java
+may not use primitives with their types, there is an extra overhead introduced with the autoboxing of types and frequent copying from stack to heap and increased garbage
+collection requirement.
+
+Arguments For
 ==============
 
 The arguments for adding generics to Java are obvious. Generics allow for reasonable flexibility under the type safety that Java provides.
