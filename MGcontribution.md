@@ -3,11 +3,6 @@ Authors: Nicolas Broeking, Melissa Guba, Josh Rahm
 <br>Date: April 16, 2013
 
 
-<br>HEY NIC - I split the paper up into sections, said what each section should have in it (based on the rubric and stuff on piazza), gave my best go at formatting, took the information you wrote in roughDraft.md and used it where it made sense in here, making it look nicer in markdown and easier to read while editing, and did some research on the JSR process and added that. Since I didn't want to just delete all your stuff and I still have no idea how GitHub pull requests work, I figured you could just copy and paste this over to the roughDraft if you like how everything looks and sounds. I also made notes and stuff bold for now so they are a little easier to pick out.
-<br>thats all for now,
-<br>melissa
-
-
 Java - Generic Types
 ====================
 
