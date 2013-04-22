@@ -124,4 +124,6 @@ enforcement of these types.
 Arguments For?
 ==============
 
-The arguments for adding generics to Java are obvious. Generics allow for reasonable flexibility under the type safety.
+The arguments for adding generics to Java are obvious. Generics allow for reasonable flexibility under the type safety that Java provides.
+With generics, Lists and other collections don't have to store a general object, they can store a specific type of object which, in turn allows
+for Java to leverage it's compile time type checking to ensure that the correct class types is being casted.
