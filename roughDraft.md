@@ -1,5 +1,5 @@
 Written By: Nicolas Broeking, Josh Rahm, Melissa Guba <br>
-Emails: nicolas.broeking@colorado.edu, "Need Other Emails" <br>
+Emails: nicolas.broeking@colorado.edu, joshua.rahm@colorado.edu, "Need Other Emails" <br>
 Written On: April 16, 2013 <br>
 
 Java Generics
