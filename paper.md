@@ -2,12 +2,6 @@ Authors: Nicolas Broeking, Melissa Guba, Josh Rahm
 <br>Emails: nicolas.broeking@colorado.edu, melissa.guba@colorado.edu, ***(Josh's email)***
 <br>Date: April 16, 2013
 
-
-<br>HEY NIC - I split the paper up into sections, said what each section should have in it (based on the rubric and stuff on piazza), gave my best go at formatting, took the information you wrote in roughDraft.md and used it where it made sense in here, making it look nicer in markdown and easier to read while editing, and did some research on the JSR process and added that. Since I didn't want to just delete all your stuff and I still have no idea how GitHub pull requests work, I figured you could just copy and paste this over to the roughDraft if you like how everything looks and sounds. I also made notes and stuff bold for now so they are a little easier to pick out.
-<br>thats all for now,
-<br>melissa
-
-
 Java - Generic Types
 ====================
 
@@ -19,12 +13,8 @@ Programming languages are always evolving to better suit the needs of modern pro
 
 Generic Types
 -------------
-**Generic Types are...**
-<br> **(need info here)**
-
-<br> **They are used for...**
-<br> **anything else to add to this?**
-<br> Generic Types are usful in Java when a programmer wants to have a class that accepts different types. Without Generic Types, the programmer would have to manage a large code base, because each type would need it's own class. For example, a tuple class in Jave implemented without using Generics would have a different class for each combination type: <br>
+Generic Class Types are a way for the programmer to build a class structure, usually a container class, and not specify the types of the enternal things. A common example of this is if we were to right a list class. Well you can ask What do you want? A list of ints, a list of doubles, or a list of pretty much any type. For most cases it shouldn't matter what kind of list it is because a list should behave the same way however if your language doesn't support generic types you have to create a class for each type. So you have to create a list of ints, and a list of doubles, even if you don't use both. However, generic types allow you to just create a list of whatever and you can fill in the whatever when you acctually use the list. So instead of creating a huge code base for all kinds of lists you can create just one generic class of a list. 
+<br>Generic Types are usful in Java when a programmer wants to have a class that accepts different types. Without Generic Types, the programmer would have to manage a large code base, because each type would need it's own class. For example, a tuple class in Jave implemented without using Generics would have a different class for each combination type: <br>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
 class tuple1{
 	private int x;
@@ -136,8 +126,7 @@ class tuple1<A, B>{
 	}
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In this implementation, `A` and `B` represent the types for `x` and `y`, respectively. This allows for the types of `x` and `y` in the tuple to be decided once the tuple is created. Consequently, there can be separate people developing the implementation of the tuple, and using a tuple in their own code, and they do not have to worry about who is changing what as long as they both are aware there are two variables (`x` and `y`, in our example) and that those variables have some type `A` and `B`.
-
+In this implementation, `A` and `B` represent the types for `x` and `y`, respectively. This allows for the types of `x` and `y` in the tuple to be decided once the tuple is created. Consequently, there can be separate people developing the implementation of the tuple, and using a tuple in their own code, and they do not have to worry about who is changing what as long as they both are aware there are two variables (`x` and `y`, in our example) and that those variables have some type `A` and `B`. **THIS IS NOT CORRECT MELISSA**
 
 
 Initiation
