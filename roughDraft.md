@@ -119,11 +119,83 @@ extra syntax required to use them. Some animosity stemmed from the potential abu
 difference being that Java does not allow default parameters or typedefs, which would make generics even more verbose.
 
 In addition to the extra verbosity, another main complaint of generics is that the type information is lost at compile time. The issue is that when there is no runtime
-enforcement of these types.
+enforcement of these types, there can be issues with runtime binding if, for example, a binary file was hot swapped with a different type, there would be no way
+to check it during runtime, and this could cause some unexplainable errors.
 
-Arguments For?
+Another main complaint stemming from the use of generics is that they were never well defined since it is impossible to use primitive data types with them. Since Java
+may not use primitives with their types, there is an extra overhead introduced with the autoboxing of types and frequent copying from stack to heap and increased garbage
+collection requirement.
+
+Arguments For
 ==============
 
 The arguments for adding generics to Java are obvious. Generics allow for reasonable flexibility under the type safety that Java provides.
 With generics, Lists and other collections don't have to store a general object, they can store a specific type of object which, in turn allows
 for Java to leverage it's compile time type checking to ensure that the correct class types is being casted.
+
+Initiation
+----------
+A Specification is initiated by a Member of the Java Community Process [2], and approved for development by the responsible Executvie Committee. A group of experts is then formed to assist the Spec Lead with the development of the Specification [1]. The Java Specification Request (JSR) for Generic Types in Java was approved on May 17, 1999 ***(source?)***.
+
+**summary of first draft of Generic Type specification...**
+<br>**(need info here)**
+
+**examples of community reactions...**
+<br>**(need info here)**
+
+
+Draft Releases
+--------------
+The Expert Group develops the Specification through an iterative process, releasing drafts for public review and comments. A formal public review precedes a ballot held by the Executive Committee on whether the JSR should proced to the Final Release stage. [1]
+
+**how the proposal was changed...**
+<br>**(need info here)**
+
+
+Final Release
+-------------
+In the Final Release stage the Spec Lead submits the Specification to the Program Management Office for publication as the Proposed Final Draft. The Reference Implementation (RI) and Technology Compatibility Kit (TCK) must then be completed, and the RI pass the TCK. The Specification, RI, and TCK are then submitted to the Program Management Office, then to the Expert Committee for final approval. [1] 
+
+**when the final proposal was accepted...September 30, 2004 (source?)**
+
+**what the final accepted form of the proposal was...**
+<br>**(need info here)**
+
+
+Maintenance
+-----------
+Once the Specification has passed through the Final Release stage, it and its RI and TCK are updated in response to ongoing requests for clarification, interpretation, enhancements, and revisions made by Members and commentators. The Expert Committee reviews proposed cahnges and indicates which can be carried out quickly and easily, and which must be made into a new JSR. [1]
+
+**unexpected benefits of Generic Types...**
+<br>**(need info here)**
+
+**examples of requests for clarification, interpretation, or enhancements to Generic Types...**
+<br>**(need info here)**
+
+**examples of new JSR's that have resulted from the Generic Types JSR...**
+<br>**(need info here)**
+
+
+
+References
+----------
+**(Put links here with a note about what info was gotten from it, so fancy citations can be added later)**
+
+[1] The JSR process - http://jcp.org/aboutJava/communityprocess/final/jsr355/JCP-2.9-Final-clean.pdf
+<br>[2] Java Community Process - http://jcp.org/en/home/index
+
+
+NOTES
+----- 
+###Definitions:
+Reference Implementation (RI): The prototype or "proof of concept" implementation of a
+Specification.
+
+Specification Lead (Spec Lead): The Expert responsible for leading the effort to develop
+or make significant revisions to a Specification and for completing the associated
+Reference Implementation and Technology Compatibility Kit. A Spec Lead (or the Spec
+Lead's host company or organization) must be a Java Community Process Member.
+
+Technology Compatibility Kit (TCK): The suite of tests, tools, and documentation that
+allows an organization to determine if its implementation is compliant with the
+Specification.
