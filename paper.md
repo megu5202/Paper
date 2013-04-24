@@ -14,12 +14,8 @@ Programming languages are always evolving to better suit the needs of modern pro
 
 Generic Types
 -------------
-**Generic Types are...**
-<br> **(need info here)**
-
-<br> **They are used for...**
-<br> **anything else to add to this?**
-<br> Generic Types are usful in Java when a programmer wants to have a class that accepts different types. Without Generic Types, the programmer would have to manage a large code base, because each type would need it's own class. For example, a tuple class in Jave implemented without using Generics would have a different class for each combination type: <br>
+Generic Class Types are a way for the programmer to build a class structure, usually a container class, and not specify the types of the enternal things. A common example of this is if we were to right a list class. Well you can ask What do you want? A list of ints, a list of doubles, or a list of pretty much any type. For most cases it shouldn't matter what kind of list it is because a list should behave the same way however if your language doesn't support generic types you have to create a class for each type. So you have to create a list of ints, and a list of doubles, even if you don't use both. However, generic types allow you to just create a list of whatever and you can fill in the whatever when you acctually use the list. So instead of creating a huge code base for all kinds of lists you can create just one generic class of a list. 
+<br>Generic Types are usful in Java when a programmer wants to have a class that accepts different types. Without Generic Types, the programmer would have to manage a large code base, because each type would need it's own class. For example, a tuple class in Jave implemented without using Generics would have a different class for each combination type: <br>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
 class tuple1{
 	private int x;
@@ -131,19 +127,20 @@ class tuple1<A, B>{
 	}
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In this implementation, `A` and `B` represent the types for `x` and `y`, respectively. This allows for the types of `x` and `y` in the tuple to be decided once the tuple is created. Consequently, there can be separate people developing the implementation of the tuple, and using a tuple in their own code, and they do not have to worry about who is changing what as long as they both are aware there are two variables (`x` and `y`, in our example) and that those variables have some type `A` and `B`.
-
+In this implementation, `A` and `B` represent the types for `x` and `y`, respectively. This allows for the types of `x` and `y` in the tuple to be decided once the tuple is created. Consequently, there can be separate people developing the implementation of the tuple, and using a tuple in their own code, and they do not have to worry about who is changing what as long as they both are aware there are two variables (`x` and `y`, in our example) and that those variables have some type `A` and `B`. **THIS IS NOT CORRECT MELISSA.... then what would make it correct?**
 
 
 Initiation
 ----------
-A Specification is initiated by a Member of the Java Community Process [2], and approved for development by the responsible Executvie Committee. A group of experts is then formed to assist the Spec Lead with the development of the Specification [1]. The Java Specification Request (JSR) for Generic Types in Java was approved on May 17, 1999 ***(source?)***.
+A Specification is initiated by a Member of the Java Community Process [2], and approved for development by the responsible Executvie Committee. A group of experts is then formed to assist the Spec Lead with the development of the Specification [1]. The Java Specification Request (JSR) for Generic Types in Java was approved on May 17, 1999 **(source?)**.
 
 **summary of first draft of Generic Type specification...**
 <br>**(need info here)**
 
-**examples of community reactions...**
-<br>**(need info here)**
+**examples of community reactions to the proposal...**
+<br>**reasons why generics would be bad... just list them!**
+<br>**reasons why generics would be good... just list them!**
+
 
 
 Draft Releases
