@@ -2,6 +2,7 @@ Authors: Nicolas Broeking, Melissa Guba, Josh Rahm
 <br>Emails: nicolas.broeking@colorado.edu, melissa.guba@colorado.edu, ***(Josh's email)***
 <br>Date: April 16, 2013
 
+
 Java - Generic Types
 ====================
 
@@ -126,18 +127,20 @@ class tuple1<A, B>{
 	}
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In this implementation, `A` and `B` represent the types for `x` and `y`, respectively. This allows for the types of `x` and `y` in the tuple to be decided once the tuple is created. Consequently, there can be separate people developing the implementation of the tuple, and using a tuple in their own code, and they do not have to worry about who is changing what as long as they both are aware there are two variables (`x` and `y`, in our example) and that those variables have some type `A` and `B`. **THIS IS NOT CORRECT MELISSA**
+In this implementation, `A` and `B` represent the types for `x` and `y`, respectively. This allows for the types of `x` and `y` in the tuple to be decided once the tuple is created. Consequently, there can be separate people developing the implementation of the tuple, and using a tuple in their own code, and they do not have to worry about who is changing what as long as they both are aware there are two variables (`x` and `y`, in our example) and that those variables have some type `A` and `B`. **THIS IS NOT CORRECT MELISSA.... then what would make it correct?**
 
 
 Initiation
 ----------
-A Specification is initiated by a Member of the Java Community Process [2], and approved for development by the responsible Executvie Committee. A group of experts is then formed to assist the Spec Lead with the development of the Specification [1]. The Java Specification Request (JSR) for Generic Types in Java was approved on May 17, 1999 ***(source?)***.
+A Specification is initiated by a Member of the Java Community Process [2], and approved for development by the responsible Executvie Committee. A group of experts is then formed to assist the Spec Lead with the development of the Specification [1]. The Java Specification Request (JSR) for Generic Types in Java was approved on May 17, 1999 **(source?)**.
 
 **summary of first draft of Generic Type specification...**
 <br>**(need info here)**
 
-**examples of community reactions...**
-<br>**(need info here)**
+**examples of community reactions to the proposal...**
+<br>**reasons why generics would be bad... just list them!**
+<br>**reasons why generics would be good... just list them!**
+
 
 
 Draft Releases
