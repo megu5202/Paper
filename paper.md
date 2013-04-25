@@ -18,7 +18,7 @@ Generic Class Types are a way for the programmer to build a class structure, usu
 <br>Generic Types are usful in Java when a programmer wants to have a class that accepts different types. Without Generic Types, the programmer would have to manage a large code base, because each type would need it's own class. For example, a tuple class in Jave implemented without using Generics would have a different class for each combination type: <br>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
 class tuple1
-      {
+{
 	private int x;
 	private int y;
 
@@ -52,7 +52,7 @@ class tuple1
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
 class tuple2
-      {
+{
 	private int x;
 	private double y;
 	
@@ -86,7 +86,7 @@ class tuple2
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
 class tuple3
-      {
+{
 	private double x;
 	private double y;
 	
@@ -120,7 +120,7 @@ class tuple3
 This example shows only three different combinations, but to fully implement this basic class we would need every combination of at least the 8 primitive types **(list the types)**, resulting in 64 different combinations, thus 64 separate classes to code and manage **(check math)**. The issues that arise from coding a simple class, like the one in our example, increase many times over for more complicated classes. Generic Types handle this issue by allowing the implementation of one class that can handle any type, and all 64 **(check math)** combinations. Modifying the previous example with the benefit of Generics results in the following:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
 class tuple1<A, B>
-      {
+{
 	private A x;
 	private B y;
 
