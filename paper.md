@@ -16,112 +16,136 @@ Generic Types
 Generic Class Types are a way for the programmer to build a class structure, usually a container class, and not specify the types of the enternal things. A common example of this is if we were to right a list class. Well you can ask What do you want? A list of ints, a list of doubles, or a list of pretty much any type. For most cases it shouldn't matter what kind of list it is because a list should behave the same way however if your language doesn't support generic types you have to create a class for each type. So you have to create a list of ints, and a list of doubles, even if you don't use both. However, generic types allow you to just create a list of whatever and you can fill in the whatever when you acctually use the list. So instead of creating a huge code base for all kinds of lists you can create just one generic class of a list. 
 <br>Generic Types are usful in Java when a programmer wants to have a class that accepts different types. Without Generic Types, the programmer would have to manage a large code base, because each type would need it's own class. For example, a tuple class in Jave implemented without using Generics would have a different class for each combination type: <br>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-class tuple1{
+class tuple1
+      {
 	private int x;
 	private int y;
 
-	tuple1(){
+	tuple1()
+	{
 		x = 0;
 		y = 0;
 	}
 
-	public void setx(int a){
+	public void setx(int a)
+	{
 		x = a;
  	}
 
-	public void sety(int a){
+	public void sety(int a)
+	{
 		y = a;
 	}
 
-	public int getx(){
+	public int getx()
+	{
 		return x;
 	}
 
-	public int gety(){
+	public int gety()
+	{
 		return y;
 	}
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-class tuple2{
+class tuple2
+      {
 	private int x;
 	private double y;
 	
-	tuple2(){
+	tuple2()
+	{
 		x = 0;
 		y = 0.0;
 	}
 	
-	public void setx(int a){
+	public void setx(int a)
+	{
 		x = a;
  	}
 
-	public void sety(double a){
+	public void sety(double a)
+	{
 		y = a;
 	}
 	
-	public int getx(){
+	public int getx()
+	{
 		return x;
 	}
 
-	public double gety(){
+	public double gety()
+	{
 		return y;
 	}
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-class tuple3{
+class tuple3
+      {
 	private double x;
 	private double y;
 	
-	tuple3(){
+	tuple3()
+	{
 		x = 0.0;
 		y = 0.0;
 	}
 	
-	public void setx(double a){
+	public void setx(double a)
+	{
 		x = a;
  	}
 
-	public void sety(double a){
+	public void sety(double a)
+	{
 		y = a;
 	}
 	
-	public double getx(){
+	public double getx()
+	{
 		return x;
 	}
 
-	public double gety(){
+	public double gety()
+	{
 		return y;
 	}
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 This example shows only three different combinations, but to fully implement this basic class we would need every combination of at least the 8 primitive types **(list the types)**, resulting in 64 different combinations, thus 64 separate classes to code and manage **(check math)**. The issues that arise from coding a simple class, like the one in our example, increase many times over for more complicated classes. Generic Types handle this issue by allowing the implementation of one class that can handle any type, and all 64 **(check math)** combinations. Modifying the previous example with the benefit of Generics results in the following:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-class tuple1<A, B>{
+class tuple1<A, B>
+      {
 	private A x;
 	private B y;
 
-	tuple1(){
+	tuple1()
+	{
 		x = 0;
 		y = 0;
 	}
 
-	public void setx(A a){
+	public void setx(A a)
+	{
 		x = a;
  	}
 
-	public void sety( B a){
+	public void sety( B a)
+	{
 		y = a;
 	}
 
-	public A getx(){
+	public A getx()
+	{
 		return x;
 	}
 
-	public B gety(){
+	public B gety()
+	{
 		return y;
 	}
 }
