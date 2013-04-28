@@ -117,7 +117,7 @@ class tuple3
 	}
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-This example shows only three different combinations, but to fully implement this basic class we would need every combination of at least the 8 primitive types **(list the types)**, resulting in 64 different combinations, thus 64 separate classes to code and manage **(check math)**. The issues that arise from coding a simple class, like the one in our example, increase many times over for more complicated classes. Generic Types handle this issue by allowing the implementation of one class that can handle any type, and all 64 **(check math)** combinations. Modifying the previous example with the benefit of Generics results in the following:
+This example shows only three different combinations, but to fully implement this basic class we would need every combination of at least the 8 primitive types, int, double, float, bool, long, byte, char and short, resulting in 64 different combinations, thus 64 separate classes to code and manage. The issues that arise from coding a simple class, like the one in our example, increase many times over for more complicated classes. Generic Types handle this issue by allowing the implementation of one class that can handle any type, and all 64 combinations. Modifying the previous example with the benefit of Generics results in the following:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
 class tuple1<A, B>
 {
@@ -151,12 +151,11 @@ class tuple1<A, B>
 	}
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In this implementation, `A` and `B` represent the types for `x` and `y`, respectively. This allows for the types of `x` and `y` in the tuple to be decided once the tuple is created. Consequently, there can be separate people developing the implementation of the tuple, and using a tuple in their own code, and they do not have to worry about who is changing what as long as they both are aware there are two variables (`x` and `y`, in our example) and that those variables have some type `A` and `B`. **THIS IS NOT CORRECT MELISSA.... then what would make it correct?**
-
+In this implementation, `A` and `B` represent the types for `x` and `y`, respectively. This allows for the types of `x` and `y` in the tuple to be decided once the tuple is created. This allows for the use of the class in many different situations without having to create more classes. 
 
 Initiation
 ----------
-A Specification is initiated by a Member of the Java Community Process [2], and approved for development by the responsible Executvie Committee. A group of experts is then formed to assist the Spec Lead with the development of the Specification [1]. The Java Specification Request (JSR) for Generic Types in Java was approved on May 17, 1999 **(source?)**.
+A Specification is initiated by a Member of the Java Community Process [2], and approved for development by the responsible Executvie Committee. A group of experts is then formed to assist the Spec Lead with the development of the Specification [1]. The Java Specification Request (JSR) for Generic Types in Java was approved on May 17, 1999 [3].
 
 **summary of first draft of Generic Type specification...**
 <br>**(need info here)**
@@ -206,6 +205,8 @@ References
 
 [1] The JSR process - http://jcp.org/aboutJava/communityprocess/final/jsr355/JCP-2.9-Final-clean.pdf
 <br>[2] Java Community Process - http://jcp.org/en/home/index
+
+<br>[3] JSR for java generics http://jcp.org/en/jsr/detail?id=14
 
 
 NOTES
