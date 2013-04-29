@@ -15,7 +15,8 @@ Programming languages are always evolving to better suit the needs of modern pro
 Generic Types
 -------------
 Generic Class Types are a way for the programmer to build a class structure, usually a container class, and not specify the types of the member variables. A common example of this is if we were to wright a list class. Well you can ask What do you want? A list of Integers, a list of Doubles, or a list of pretty much any Object. For most cases it shouldn't matter what kind of list it is because a list should behave the same way, however if your language doesn't support generic types you have to create a class for each type. So you have to create a list of Integers, and a list of Doubles, even if you don't use both. However, generic types allow you to just create a list of whatever and you can fill in the whatever when you acctually use the list. So instead of creating a huge code base for all kinds of lists you can create just one generic class of a list. 
-<br>Generic Types are usful in Java when a programmer wants to have a class that accepts different types. Without Generic Types, the programmer would have to manage a large code base, because each type would need it's own class. For example, a tuple class in Jave implemented without using Generics would have a different class for each combination type: <br>
+<br>Generic Types are usful in Java when a programmer wants to have a class that accepts different types. Without Generic Types, the programmer would have to manage a large code base, because each type would need it's own class. For example, a tuple class in Jave implemented without using Generics would have a different class for each combination type: 
+<br>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
 class tuple1
 {
@@ -158,10 +159,8 @@ Initiation
 A Specification is initiated by a Member of the Java Community Process [2], and approved for development by the responsible Executive Committee. A group of experts is then formed to assist the Spec Lead with the development of the Specification [1]. The Java Specification Request (JSR) for Generic Types in Java was approved on May 17, 1999 [3].
 
 **summary of first draft of Generic Type specification...**
-<br>**(need info here)**
+
 The first draft of the Generic Types Specification calls for Sun Microsystems to include a provision in the Java Runtime Environment to add Generics to the language specification. The argument provided for the addition of generics to he Java programming language is that most of the code is already intrinsically generic but because Java does not support generic types, the code is prone to bugs and type errors.
-
-
 
 **examples of community reactions to the proposal...**
 <br>
@@ -218,9 +217,10 @@ References
 **(Put links here with a note about what info was gotten from it, so fancy citations can be added later)**
 
 [1] The JSR process - http://jcp.org/aboutJava/communityprocess/final/jsr355/JCP-2.9-Final-clean.pdf
-<br>[2] Java Community Process - http://jcp.org/en/home/index
 
-<br>[3] JSR for java generics http://jcp.org/en/jsr/detail?id=14
+[2] Java Community Process - http://jcp.org/en/home/index
+
+[3] JSR for java generics http://jcp.org/en/jsr/detail?id=14
 
 
 NOTES
