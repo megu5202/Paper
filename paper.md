@@ -173,39 +173,72 @@ Draft Releases
 The Expert Group develops the Specification through an iterative process, releasing drafts for public review and comments. A formal public review precedes a ballot held by the Executive Committee on whether the JSR should proceed to the Final Release stage. [1]
 
 **how the proposal was changed...**
+
 <br>**(need info here)**
 
 
 Final Release
 -------------
+
 In the Final Release stage the Spec Lead submits the Specification to the Program Management Office for publication as the Proposed Final Draft. The Reference Implementation (RI) and Technology Compatibility Kit (TCK) must then be completed, and the RI pass the TCK. The Specification, RI, and TCK are then submitted to the Program Management Office, then to the Expert Committee for final approval. [1] 
 
-Changes to the Java Language Specification (JLS) include changes in the grammar of the langauge to facilitate C++-style template syntax, but with more advanced features such as polymorphism and generic derivations.
+Changes to the Java Language Specification (JLS) include changes in the grammar of the langauge to facilitate C++-style template syntax, but with more advanced features such as polymorphism and generic derivations.[3]
 
 Changes to API include changes in the Java Collections Framework (JCF) to include support for Java Generics, and to the Class class to allow for safer reflection.
 
-**when the final proposal was accepted...September 30, 2004 [3]**
+**When was it released?***
 
-**what the final accepted form of the proposal was...**
+The Final release of JSR 14: Adding generic types to java was released on September 30, 2004 [3]
 
+The three main benifits that came out of adding generic types is Type Safety, Less explicit casts, More declariative API's, and encourages code reuse. Type Safety added the gaurentee that if the code compiles without warnings then no implicit casts will throw an error. Less explicit casts need to be done because the programmer knows the type of the objects because they are not definined with the generic type. Finally with the addition of generic types there is a greater ability to reuse code which will lead to fewer bugs. [4]
 
-The three main benifits that came out of adding generic types is Type Safety, Less explicit casts, More declariative API's, and encourages code reuse. 
+Although many good things came out of adding generic types the community found limitations with the way java generics was done. The first limitation was with formal type parameters.
 
+~~~~~~java
+public class nicsClass <T>
+{
+    T obj = new T() ; 
+}
+~~~~~~
+
+This is not allowed because T has no code for creating T because all that information is erased at compile time. The next limitation is that there is no hierarchy of paramaterized types. If we have a class called nicsClass that enherits from object. If we use a generic class parameterized with nicsClass then we can not add, remove, assign or anything with the same class parameterized to Object or vise versa. For example the following is not allowed.[4]
+
+~~~~~~~java
+List<String> ls = new ArrayList<String>();
+ls.add("one");
+ls.add("two");
+List<Object> lo = ls; //Illegal
+lo.add(new Integer(3)); 
+~~~~~~~~~~
+
+Another huge drawback is you can not paramaterize a generic type with a primitive type.
+
+~~~~~~~~java
+
+List<int> ls = new ArrayList<ints>();
+
+~~~~~~~~
+
+This is not allowed.
+
+While there are other limitations with the way java generics were implemented. They are a very small amount compared to the improvements that they brought to the java language. 
 
 Maintenance
 -----------
 Once the Specification has passed through the Final Release stage, it and its RI and TCK are updated in response to ongoing requests for clarification, interpretation, enhancements, and revisions made by Members and commentators. The Expert Committee reviews proposed changes and indicates which can be carried out quickly and easily, and which must be made into a new JSR. [1]
 
 **unexpected benefits of Generic Types...**
-<br>**(need info here)**
 
-**examples of requests for clarification, interpretation, or enhancements to Generic Types...**
-<br>**(need info here)**
+Three unexpected benefits of Generic types were brought because of one of the principles of creation, erasure. The benefits being:
+
+1. All code prior the the release of the jsr can remain unchanged because at runtime there is no generic byte code.
+2. When we declair a parameterized version of class C we don't need the code of generic class C.
+3. The volume of the byte code does not increase as we create more parameterized types of the same generic class.
+
 
 **examples of new JSR's that have resulted from the Generic Types JSR...**
-<br>**(need info here)**
 
-
+The only request that came from this one is a in the works request called reilified generics. This request aims to remove the premis erasure and not erase the generic information. However this is not a formal request yet and the request is a work in progress. [5]
 
 References
 ----------
@@ -218,6 +251,8 @@ References
 [3] JSR for java generics - http://jcp.org/en/jsr/detail?id=14
 
 [4] Limitations - http://eyalsch.wordpress.com/tag/jsr-14/
+
+[5] other JSR - http://tech.puredanger.com/java7#reified
 
 NOTES
 ----- 
