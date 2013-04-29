@@ -162,21 +162,11 @@ A Specification is initiated by a Member of the Java Community Process [2], and 
 
 The first draft of the Generic Types Specification calls for Sun Microsystems to include a provision in the Java Runtime Environment to add Generics to the language specification. The argument provided for the addition of generics to he Java programming language is that most of the code is already intrinsically generic but because Java does not support generic types, the code is prone to bugs and type errors.
 
+The proposal of java generics was built upon two main principles, Erasure and type safety gaurentee. Erasure gives that at compile time the java byte code has absolutly no generic informaton at all. All of the generic information is removed and replaced by the parameratized type at compile time. The type safety gaurentee, gaurentees if the code compiles without any warnings then the code is deamed "type safe". This means that the ClassCastException will not be thrown by the generic code. [4]
+
 **examples of community reactions to the proposal...**
-<br>
-	* Generics complicate the code structure.
-		* Generics can be abused to create very obscure code.
-			* List< CellTable< ActionButton< String, Integer >, ? extends DateFormat<String>>
 
-	* Generics are not enforced at runtime, they are only compile-time artifacts.
-
-	* Generics do not allow for primitive types.
-		* A List<int> is invalid
-
-<br>
-	* They bring type safty to otherwise genericised objects.
-
-	* They allow for there to be common code to work with multiple, unrelated objects.
+The community overall was very pleased with adding generics to the java programming language because generic types in java were in high demand.
 
 Draft Releases
 --------------
@@ -189,12 +179,17 @@ The Expert Group develops the Specification through an iterative process, releas
 Final Release
 -------------
 In the Final Release stage the Spec Lead submits the Specification to the Program Management Office for publication as the Proposed Final Draft. The Reference Implementation (RI) and Technology Compatibility Kit (TCK) must then be completed, and the RI pass the TCK. The Specification, RI, and TCK are then submitted to the Program Management Office, then to the Expert Committee for final approval. [1] 
-	Changes to the Java Language Specification (JLS) include changes in the grammar of the langauge to facilitate C++-style template syntax, but with more advanced features such as polymorphism and generic derivations.
-	Changes to API include changes in the Java Collections Framework (JCF) to include support for Java Generics, and to the Class class to allow for safer reflection.
-**when the final proposal was accepted...September 30, 2004 (source?)**
+
+Changes to the Java Language Specification (JLS) include changes in the grammar of the langauge to facilitate C++-style template syntax, but with more advanced features such as polymorphism and generic derivations.
+
+Changes to API include changes in the Java Collections Framework (JCF) to include support for Java Generics, and to the Class class to allow for safer reflection.
+
+**when the final proposal was accepted...September 30, 2004 [3]**
 
 **what the final accepted form of the proposal was...**
-<br>**(need info here)**
+
+
+The three main benifits that came out of adding generic types is Type Safety, Less explicit casts, More declariative API's, and encourages code reuse. 
 
 
 Maintenance
@@ -220,8 +215,9 @@ References
 
 [2] Java Community Process - http://jcp.org/en/home/index
 
-[3] JSR for java generics http://jcp.org/en/jsr/detail?id=14
+[3] JSR for java generics - http://jcp.org/en/jsr/detail?id=14
 
+[4] Limitations - http://eyalsch.wordpress.com/tag/jsr-14/
 
 NOTES
 ----- 
