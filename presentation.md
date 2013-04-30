@@ -173,7 +173,7 @@ Negative Community Response
 **No Primitives**
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-List<int> list = new ArrayList<int>();
+List<int> list = new ArrayList<int>(); // invalid
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
