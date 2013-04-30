@@ -155,7 +155,7 @@ Negative Community Response
 **Formal Type Parameters**
 
 ~~~~~~~~~~~~~~~java
-public class example<T>
+public class Example<T>
 {
 	private T x;
 	public example()
