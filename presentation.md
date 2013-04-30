@@ -165,8 +165,11 @@ The JSR Process
 ===============
 
 Initiation - introduction of problem/idea for improvement
+
 Draft Releases - implementation of specfication is discussed and modifications are made
+
 Final Release - when the specification is introduced into Java
+
 Maintenance - later changes and consequences of the specification
 
 
@@ -174,14 +177,19 @@ Conclusion
 ==========
 
 Short note about generics
+
 What we learned about specification process
 
 Resources
 =========
 The JSR process - http://jcp.org/aboutJava/communityprocess/final/jsr355/JCP-2.9-Final-clean.pdf
+
 Java Community Process - http://jcp.org/en/home/index
+
 Java Generic Types JSR - http://jcp.org/en/jsr/detail?id=14
+
 Limitations and Benefits - http://eyalsch.wordpress.com/tag/jsr-14/
+
 Reified Generics JSR - http://tech.puredanger.com/java7#reified
 
 
