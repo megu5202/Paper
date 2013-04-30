@@ -116,14 +116,30 @@ Positive Community Response
 ===========================
 **Less explicit casts**
 
-ADD CODE THAT EXPLAINS SLIDE 12
+ArrayList<Integer> array = new ArrayList<Integer>();
+array.add(5);
+Integer x = array.get(0);
+
+vs
+
+ArrayList array = new ArrayList();
+array.add(5);
+Integer x = (Integer) array.get(0);
 
 
 Positive Community Response
 ===========================
 **Encouraged Code Reusue**
 
-ADD CODE THAT IS AN EXAMPLE OF REUSABLE CODE
+public class Tuple<A, B>{
+	public A x;
+	public B y;
+
+	public Tuple1(A a, B b){
+		x = a;
+		y = b;
+	}
+}
 
 
 Negative Community Response
@@ -144,20 +160,20 @@ Negative Community Response
 **Hierarchy of parameterized types**
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-List<Dog> dog_list = new ArrayList<Dog>();
+List<Dog> doglist = new ArrayList<Dog>();
 
-dog_list.add("Dalmation");
-dog_list.add("Lab");
+doglist.add("Dalmation");
+doglist.add("Lab");
 
-List<Animals> animal_list = dog_list; // ERROR
+List<Animals> animallist = doglist; // ERROR
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Negative Community Respose
+Negative Community Response
 ==========================
 **No Primitives**
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-List<int> list = new ArrayList<int>();
+List<int> list = new ArrayList<int>(); // invalid
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -166,7 +182,7 @@ The JSR Process
 
 Initiation - introduction of problem/idea for improvement
 
-Draft Releases - implementation of specfication is discussed and modifications are made
+Draft Releases - implementation of specification is discussed and modifications are made
 
 Final Release - when the specification is introduced into Java
 
