@@ -99,6 +99,12 @@ Proposal
 * Erasure
 
 
+
+Final Release
+=============
+SOMETHING
+
+
 Positive Community Response
 ===========================
 **Type Safety**
@@ -115,80 +121,76 @@ ADD CODE THAT EXPLAINS SLIDE 12
 
 Positive Community Response
 ===========================
+**Encouraged Code Reusue**
 
-**Encourages Code Reusue**
+ADD CODE THAT IS AN EXAMPLE OF REUSABLE CODE
 
-Instead of having create new classes for each type of object.
-
-Instead you can create one genericed class.
-
-It is more efficient and creates a smaller code base.
-
-If you make a change it is universal.
 
 Negative Community Response
 ===========================
-
 **Formal Type Parameters**
 
-~~~~~~~~~~~~~~~java
-public class example<T>
-{
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
+public class Example<T>{
 	private T x;
-	public example()
-	{
+	public Example(){
 		x = new T();
 	}
 }
-
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Negative Community Response
 ===========================
+**Hierarchy of parameterized types**
 
-**Hiearchy of parameterized types**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
+List<Dog> dog_list = new ArrayList<Dog>();
 
-~~~~~~~~~~~~~~~~~~~java
+dog_list.add("Dalmation");
+dog_list.add("Lab");
 
-List<Dog> ls = new ArrayList<Dog>();
-
-ls.add("Dalmation");
-ls.add("Lab");
-
-List<Animals> lo = ls; // Throws ERROR
-
-~~~~~~~~~~~~~~~~~~~
+List<Animals> animal_list = dog_list; // ERROR
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Negative Community Respose
 ==========================
+**No Primitives**
 
-**No Primatives**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
+List<int> list = new ArrayList<int>();
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-~~~~~~~~~~java
 
-List<int> ls = new ArrayList<int>();
+The JSR Process
+===============
 
-~~~~~~~~~~
+Initiation - introduction of problem/idea for improvement
 
-Adds a layer of inefficency
+Draft Releases - implementation of specfication is discussed and modifications are made
 
-If you want a list of plain ints you cant have it.
+Final Release - when the specification is introduced into Java
 
-Final Release
-=============
+Maintenance - later changes and consequences of the specification
 
-Changed java language spec to add c++ style template syntax.
 
-Modified reflextions api to take advatage of generics.
-
-Slide 18
-========
-
-Slide 19
-========
-
-Conclution
+Conclusion
 ==========
+
+Short note about generics
+
+What we learned about specification process
+
+Resources
+=========
+The JSR process - http://jcp.org/aboutJava/communityprocess/final/jsr355/JCP-2.9-Final-clean.pdf
+
+Java Community Process - http://jcp.org/en/home/index
+
+Java Generic Types JSR - http://jcp.org/en/jsr/detail?id=14
+
+Limitations and Benefits - http://eyalsch.wordpress.com/tag/jsr-14/
+
+Reified Generics JSR - http://tech.puredanger.com/java7#reified
 
 
 
