@@ -174,51 +174,56 @@ Final Release
 
 In the Final Release stage the Spec Lead submits the Specification to the Program Management Office for publication as the Proposed Final Draft. The Reference Implementation (RI) and Technology Compatibility Kit (TCK) must then be completed, and the RI pass the TCK. The Specification, RI, and TCK are then submitted to the Program Management Office, then to the Expert Committee for final approval [1]. The final release of JSR 14: Adding Generic types to Java, was released on September 30, 2004 [3].
 
-The main benifits that came from adding generic types are type safety, less explicit casts, more declaritive API's, and encouraged code resuse. Type safety guarantees that when code compiles without warnings, no implicit casts will throw an error. Less explicit casts need to be done because the programmer knows the type of the objects because they are not definined with the generic type. **More declarative API's, what do they do?**. Finally code that uses generics is easier to reuse in many different applications, with less possibility of errors [4].
+The main benifits that came from adding generic types are type safety, less explicit casts, and encouraged code resuse. Type safety guarantees that when code compiles without warnings, no implicit casts will throw an error. Less explicit casts need to be done because the programmer knows the type of the objects because they are not definined with the generic type. Finally code that uses generics is easier to reuse in many different applications, with less possibility of errors [4].
 
-Although many good things came from the addition of generic types, the community found limitations in the way that Java generics were implemented. The first limitation was with formal type parameters, as shown in this example. 
-**What is the following code supposed to be doing?**
+Although many good things came from the addition of generic types, the community found limitations in the way that Java generics were implemented. The first limitation was with formal type parameters, as shown in this example. The following code is supposed to declare a new object `example` of type T at construction time.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
 public class example<T>{
-    T obj = new T() ; 
+    T thing = new T(); 
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**what is it actually doing and why is it wrong?** 
-This implementation is not allowed since all the information required to create T is erased at compile time. Another limitation here is that there is no hierarchy of parameterized types. If we have a class called `example` that inherits from object. **what is inheriting from object?** If we use a generic class parameterized with `example` then we can not add, remove, assign or anything with the same class parameterized to Object or vise versa. For example the following is not allowed.[4] 
-**What is the following code supposed to be doing?**
+This implementation is not allowed within Generics because the type T is not declared as a valid Object anywhere. Code that would correctly declare a new object `example` with type T using Generics:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-List<String> ls = new ArrayList<String>();
-ls.add("one");
-ls.add("two");
-List<Object> lo = ls; //Illegal
-lo.add(new Integer(3)); 
+public class example<T>{
+	public T x;
+	public example(T a){
+		x = a;
+	}
+}
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**what is it actually doing and why is it wrong?**
-Another huge drawback is you can not parameterize a generic type with a primitive type. 
-
-**What is the following code doing?**
+Another example of a limitation is Given a class called `Animal` that inherits from Object, and another class `Lion` that inherits from Object, it would be logical to allow `Lion` to also inhereit `Animal` (since lions are a subset of animals). The fourth line of the following code is incorrect:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-List<int> ls = new ArrayList<ints>();
+List<Lion> lion_list = new ArrayList<Lion>();
+lion_list.add("simba");
+lion_list.add("nala");
+
+List<Animal> animal_list = lion_list; 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**What is it actually doing and why it it wrong?**
+The fourth line will cause errors because Generics do not allow such a hierarchy of parameterized types [4]. A more common problem with Generics is that you cannot parameterize a generic type with a primitive type (int, char, etc).
 
-While there are limitations with the way that Java Generic Types were implemented, they are reasonable compared to the improvements they brought to the Java language. 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
+List<int> list = new ArrayList<int>();
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To modify the above code so that it would work, the wrapper `Integer` would have to be used. The wrapper implements the primitive type `int`.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
+List<Integer> list = new ArrayList<Integer>();
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+While there are many limitations with the way that Java Generic Types were implemented, they are considered reasonable compared to the improvements they brought to the Java language. 
 
 Maintenance
 -----------
-Once the Specification has passed through the Final Release stage, it and its RI and TCK are updated in response to ongoing requests for clarification, interpretation, enhancements, and revisions made by Members and commentators. The Expert Committee reviews proposed changes and indicates which can be carried out quickly and easily, and which must be made into a new JSR. [1]
+Once the Specification has passed through the Final Release stage, it and its RI and TCK are updated in response to ongoing requests for clarification, interpretation, enhancements, and revisions made by Members and commentators. The Expert Committee reviews proposed changes and indicates which can be carried out quickly and easily, and which must be made into a new JSR [1].
 
-Some unexpected benefits of Generic types resulted from erasure, one of the principles of creation **creation of what?**. These benefits include:
-
-1. All code prior to the release of the JSR can remain unchanged because at runtime code that uses Generic Types in class implementation looks almost identical to code written without Generic Types, since there is no generic byte code.
-2. When a parameterized version of class C is declared, the code of generic class C is not needed. **why?**
-3. The volume of byte code does not increase as more parameterized types of the same generic class are created.
+There were multiple unexpected benefits of Generic types resulting mainly from erasure. First, all code prior to the release of the JSR was able to remain unchanged because at runtime, code that uses Generic Types in class implementations looks almost identical to code written without Generic Types, since there is no generic byte code. Another benefit is that the volume of byte code does not increase as more parameterized types of the same generic class are created (unlike C++ templates). Finally, when a parameterized version of class `example` is declared, the code of generic class `example` is not needed, again reducing byte code [4].
 
 The release of Generic Types triggered the initiation of another request, for Reified Generics. This request aims to remove the erasure of generic information at runtime, so that Generic code would be easier to write. Since allowing the access of generic information at runtime would remove the backwards compatibility of Generics, the request also includes the option to make code reifiable only where specified. This request is not yet formal, or implemented in Java. [5]
 
@@ -228,9 +233,9 @@ References
 
 [2] Java Community Process - http://jcp.org/en/home/index
 
-[3] JSR for Java Generic Types - http://jcp.org/en/jsr/detail?id=14
+[3] Java Generic Types JSR - http://jcp.org/en/jsr/detail?id=14
 
-[4] Limitations - http://eyalsch.wordpress.com/tag/jsr-14/
+[4] Limitations and Benefits - http://eyalsch.wordpress.com/tag/jsr-14/
 
 [5] Reified Generics JSR - http://tech.puredanger.com/java7#reified
 
