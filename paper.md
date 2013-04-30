@@ -14,9 +14,7 @@ Programming languages are always evolving to better suit the needs of modern pro
 
 Generic Types
 -------------
-Generic class types allow a class structure (usually a container class) to be built without specifying the member variable types. If someone were to write a `list` class without generic types, they would have to decide if it would be a list of Integers, a list of Doubles, or a list of some other type. In most cases, a class should have the capability to handle any data type or Object, and handle them all in a similar manner. Without generic types, there must be an implementation of `list` for every data type (a list of Integers, a list of Doubles, etc). Generic types allow you to create one class `list` to handle a generic type, which can specified when the `list` is actually used. Essentially, generic types allow for more concise code when implementing classes in Java.
-
-Generic Types are usful in Java when a programmer wants to have a class that accepts different types. Without Generic Types, the programmer would have to manage a large code base, because each type would need it's own class. For example, a tuple class in Jave implemented without using Generics would have a different class for each combination type: 
+Generic class types allow a class structure (usually a container class) to be built without specifying the member variable types. This applies to Objects, but not primitive types. If someone were to write a `tuple` class without generic types, they would have to decide if it would be a tuple of Integers, a tuple of Doubles, a tuple of some other type, or a combination thereof. In most cases, a class should have the capability to handle any Object, and handle them all in a similar manner. Without generic types, there must be an implementation of `tuple` for every Object (a list of Integers, a tuple of Doubles, etc). Generic types allow you to create one class `tuple` to handle a generic type, which can specified when the `tuple` is actually used. The following code show the implementation of a class `tuple` in Java, without using Generics: 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
 class tuple1
@@ -119,7 +117,7 @@ class tuple3
 	}
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-This example shows only three different combinations, but to fully implement this basic class we would need to create a class representing every possible combination of classes. Suppose there were only 8 object types in Java; there would need to be 64 different tuple classes to accomadate every combination. (This number is actually much bigger since there are more than 8 types of objects in Java). The issues that arise from coding a simple class, like the one in our example, increase many times over for more complicated classes. Generic Types handle this issue by allowing the implementation of one class that can handle any object. Modifying the previous example with the benefit of Generic Types results in the following code:
+This example shows only three different combinations, but to fully implement this basic class we would need to create a class representing every possible combination of classes. Suppose there were only 8 object types in Java; there would need to be 64 different tuple classes to accommodate every combination. (This number is actually much bigger since there are more than 8 types of objects in Java). The issues that arise from coding a simple class, like the one in our example, increase many times over for more complicated classes. Generic Types handle this issue by allowing the implementation of one class that can handle any object. Modifying the previous example with the benefit of Generic Types results in the following code:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
 class tuple1<A, B>
 {
@@ -153,7 +151,7 @@ class tuple1<A, B>
 	}
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In this implementation, `A` and `B` represent the types for `x` and `y`, respectively. This allows for the types of `x` and `y` in the tuple to be decided once the tuple is created. This allows for the use of the class in many different situations without having to create more classes. 
+In this implementation, `A` and `B` represent the types for `x` and `y`, respectively. This allows for the object types of `x` and `y` in the tuple to be decided once the tuple is created. The class can now be used in many different situations without having to create more classes. Essentially, Generic types allow for more concise code when implementing classes in Java.
 
 Initiation
 ----------
@@ -169,16 +167,17 @@ Draft Releases
 --------------
 The Expert Group develops the Specification through an iterative process, releasing drafts for public review and comments. A formal public review precedes a ballot held by the Executive Committee on whether the JSR should proceed to the Final Release stage. [1]
 
-Changes to the Java Language Specification (JLS) were made in the grammar of the langauge to facilitate C++ style template syntax, but with more advanced features such as polymorphism and generic derivations [3]. Changes to the API were made in the Java Collections Framework (JCF) to include support for Java Generics, and to the Class class to allow for safer reflection. **what does this mean?**
+Changes to the Java Language Specification (JLS) were made in the grammar of the langauge to facilitate C++ style template syntax, but with more advanced features such as polymorphism and generic derivations [3]. Changes to the API were made in the Java Collections Framework (JCF) to include support for Java Generics, and to the Class class to allow for safer reflection. Safer reflection is another implementation type safety, allowing less error-prone code.
 
 Final Release
 -------------
 
 In the Final Release stage the Spec Lead submits the Specification to the Program Management Office for publication as the Proposed Final Draft. The Reference Implementation (RI) and Technology Compatibility Kit (TCK) must then be completed, and the RI pass the TCK. The Specification, RI, and TCK are then submitted to the Program Management Office, then to the Expert Committee for final approval [1]. The final release of JSR 14: Adding Generic types to Java, was released on September 30, 2004 [3].
 
-The main benifits that came from adding generic types are type safety, less explicit casts, more declariative API's, and encouraged code resuse. Type safety guarantees that when code compiles without warnings, no implicit casts will throw an error. Less explicit casts need to be done because the programmer knows the type of the objects because they are not definined with the generic type. **More declaritive API's, what do they do?**. Finally code that uses generics is easier to reuse in many different applications, with less possibility of errors [4].
+The main benifits that came from adding generic types are type safety, less explicit casts, more declaritive API's, and encouraged code resuse. Type safety guarantees that when code compiles without warnings, no implicit casts will throw an error. Less explicit casts need to be done because the programmer knows the type of the objects because they are not definined with the generic type. **More declarative API's, what do they do?**. Finally code that uses generics is easier to reuse in many different applications, with less possibility of errors [4].
 
-Although many good things came from the addition of generic types, the community found limitations in the way that Java generics were implemented. The first limitation was with formal type parameters, as shown in this example. **What is the following code doing, or what is it supposed to do, and what is it actually doing?**
+Although many good things came from the addition of generic types, the community found limitations in the way that Java generics were implemented. The first limitation was with formal type parameters, as shown in this example. 
+**What is the following code supposed to be doing?**
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
 public class example<T>{
@@ -186,7 +185,9 @@ public class example<T>{
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This implementation is not allowed since all the information required to create T is erased at compile time. Another limitation here is that there is no hierarchy of parameterized types. If we have a class called `example` that inherits from object. **what is inheriting from object?** If we use a generic class parameterized with `example` then we can not add, remove, assign or anything with the same class parameterized to Object or vise versa. For example the following is not allowed.[4] **What is the following code doing?**
+**what is it actually doing and why is it wrong?** 
+This implementation is not allowed since all the information required to create T is erased at compile time. Another limitation here is that there is no hierarchy of parameterized types. If we have a class called `example` that inherits from object. **what is inheriting from object?** If we use a generic class parameterized with `example` then we can not add, remove, assign or anything with the same class parameterized to Object or vise versa. For example the following is not allowed.[4] 
+**What is the following code supposed to be doing?**
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
 List<String> ls = new ArrayList<String>();
@@ -196,13 +197,16 @@ List<Object> lo = ls; //Illegal
 lo.add(new Integer(3)); 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Another huge drawback is you can not parameterize a generic type with a primitive type. **What is the following code doing?**
+**what is it actually doing and why is it wrong?**
+Another huge drawback is you can not parameterize a generic type with a primitive type. 
+
+**What is the following code doing?**
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
 List<int> ls = new ArrayList<ints>();
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This is not allowed. **is there a reason why it is not allowed?**
+**What is it actually doing and why it it wrong?**
 
 While there are limitations with the way that Java Generic Types were implemented, they are reasonable compared to the improvements they brought to the Java language. 
 
