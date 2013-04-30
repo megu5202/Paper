@@ -25,7 +25,7 @@ A Integer tuple Class
 =====================
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-class tuple1
+public class Tuple1
 {
 	public Integer x;
 	public Integer y;
@@ -41,7 +41,7 @@ class tuple1
 Tuple of Double
 ===============
 
-But after a while we relize we also need a tuple of Doubles and we want to return ( 5.0, 3.5)
+But after a while we realize we also need a tuple of Doubles and we want to return ( 5.0, 3.5)
 
 So we have to write a whole new class of Tuples that allow for Doubles. 
 
@@ -49,7 +49,7 @@ A Double tuple Class
 ====================
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-class tuple2
+public class Tuple2
 {
 	public Double x;
 	public Double y;
@@ -75,7 +75,7 @@ A Generic Tuple
 ===============
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-class tuple<A, B>
+public class Tuple<a, b>
 {
 	public A x;
 	public B y;
