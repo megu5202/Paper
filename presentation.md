@@ -119,33 +119,83 @@ Expanded the java collections api to include genericized types.
 
 Modified reflextions api to take advatage of generics. 
 
+
 Positive Community Responce
 ===========================
 
-### Things people like
-1. Adds type safety
-2. Cleans up code
-3. Encourages code reuse.
+**Type Safety**
 
-Negative Community Responce
+If the code compiles without warnings you are gaurteneed that you will not throw a casting error. Unless you explicitly try and cast an object.
+
+Positive Community Responce
 ===========================
 
-### Things people don't like
-1. Code Obfuscatation : List<<CellTable< ActionButton< String, Integer>, ? extends DateFormat<String>>
-2. Do not work with primative types
-3. Types are not enforced at runtime
+**Less explicit casts**
 
-Slide 14
-========
+Generic types are all implicit casts
 
-Slide 15
-========
+With the addition of Generic types there are less explict casts because you don't have to cast to a specific type to use contaner type classes.
 
-Slide 16
-========
+Positive Community Response
+===========================
 
-Slide 17
-========
+**Encourages Code Reusue**
+
+Instead of having create new classes for each type of object.
+
+Instead you can create one genericed class.
+
+It is more efficient and creates a smaller code base.
+
+If you make a change it is universal.
+
+Negative Community Response
+===========================
+
+**Formal Type Parameters**
+
+~~~~~~~~~~~~~~~java
+public class example<T>
+{
+	private T x;
+	public example()
+	{
+		x = new T();
+	}
+}
+
+~~~~~~~~~~~~~~~~
+
+Negative Community Response
+===========================
+
+**Hiearchy of parameterized types**
+
+~~~~~~~~~~~~~~~~~~~java
+
+List<Dog> ls = new ArrayList<Dog>();
+
+ls.add("Dalmation");
+ls.add("Lab");
+
+List<Animals> lo = ls; // Throws ERROR
+
+~~~~~~~~~~~~~~~~~~~
+
+Negative Community Respose
+==========================
+
+**No Primatives**
+
+~~~~~~~~~~java
+
+List<int> ls = new ArrayList<int>();
+
+~~~~~~~~~~
+
+Adds a layer of inefficency
+
+If you want a list of plain ints you cant have it.
 
 Slide 18
 ========
@@ -153,8 +203,10 @@ Slide 18
 Slide 19
 ========
 
-Slide 20
-========
+Conclution
+==========
+
+
 
 
 
