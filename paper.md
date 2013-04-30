@@ -17,136 +17,112 @@ Generic Types
 Generic class types allow a class structure (usually a container class) to be built without specifying the member variable types. This applies to Objects, but not primitive types. If someone were to write a `tuple` class without generic types, they would have to decide if it would be a tuple of Integers, a tuple of Doubles, a tuple of some other type, or a combination thereof. In most cases, a class should have the capability to handle any Object, and handle them all in a similar manner. Without generic types, there must be an implementation of `tuple` for every Object (a list of Integers, a tuple of Doubles, etc). Generic types allow you to create one class `tuple` to handle a generic type, which can specified when the `tuple` is actually used. The following code show the implementation of a class `tuple` in Java, without using Generics: 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-class tuple1
-{
+public class Tuple1{
 	private Integer x;
 	private Integer y;
 
-	tuple1()
-	{
+	public Tuple1(){
 		x = 0;
 		y = 0;
 	}
 
-	public void setx(Integer a)
-	{
+	public void setx(Integer a){
 		x = a;
  	}
 
-	public void sety(Integer a)
-	{
+	public void sety(Integer a){
 		y = a;
 	}
 
-	public Integer getx()
-	{
+	public Integer getx(){
 		return x;
 	}
 
-	public Integer gety()
-	{
+	public Integer gety(){
 		return y;
 	}
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-class tuple2
-{
+public class Tuple2{
 	private Integer x;
 	private Double y;
 	
-	tuple2()
-	{
+	public Tuple2(){
 		x = 0;
 		y = 0.0;
 	}
 	
-	public void setx(Integer a)
-	{
+	public void setx(Integer a){
 		x = a;
  	}
 
-	public void sety(Double a)
-	{
+	public void sety(Double a){
 		y = a;
 	}
 	
-	public Integer getx()
-	{
+	public Integer getx(){
 		return x;
 	}
 
-	public Double gety()
-	{
+	public Double gety(){
 		return y;
 	}
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-class tuple3
-{
+public class Tuple3{
 	private Double x;
 	private Double y;
 	
-	tuple3()
-	{
+	public Tuple3(){
 		x = 0.0;
 		y = 0.0;
 	}
 	
-	public void setx(Double a)
-	{
+	public void setx(Double a){
 		x = a;
  	}
 
-	public void sety(Double a)
-	{
+	public void sety(Double a){
 		y = a;
 	}
 	
-	public Double getx()
-	{
+	public Double getx(){
 		return x;
 	}
 
-	public Double gety()
-	{
+	public Double gety(){
 		return y;
 	}
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 This example shows only three different combinations, but to fully implement this basic class we would need to create a class representing every possible combination of classes. Suppose there were only 8 object types in Java; there would need to be 64 different tuple classes to accommodate every combination. (This number is actually much bigger since there are more than 8 types of objects in Java). The issues that arise from coding a simple class, like the one in our example, increase many times over for more complicated classes. Generic Types handle this issue by allowing the implementation of one class that can handle any object. Modifying the previous example with the benefit of Generic Types results in the following code:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-class tuple1<A, B>
-{
+public class Tuple1<A, B>{
 	private A x;
 	private B y;
 
-	tuple1()
-	{
+	public Tuple1(){
 		x = 0;
 		y = 0;
 	}
 
-	public void setx(A a)
-	{
+	public void setx(A a){
 		x = a;
  	}
 
-	public void sety( B a)
-	{
+	public void sety(B a){
 		y = a;
 	}
 
-	public A getx()
-	{
+	public A getx(){
 		return x;
 	}
 
-	public B gety()
-	{
+	public B gety(){
 		return y;
 	}
 }
@@ -159,7 +135,7 @@ A Specification is initiated by a Member of the Java Community Process [2], and 
 
 The first draft of the Generic Types Specification calls for Sun Microsystems to include a provision in the Java Runtime Environment to add Generics to the language specification. The argument provided for the addition of generics to the Java programming language is that most of the code is already intrinsically generic but is prone to bugs and type errors because Java does not support generic types.
 
-The proposal for Java generics was built upon two main principles, erasure and a type safety guarantee. Erasure ensures that at compile time the Java byte code has absolutly no generic informaton. This generic information should have been replaced by a parameratized type at compile time. Type safety gaurantee ensures that if code compiles without any warnings, that code is deamed "type safe". This means that a ClassCastException will not be thrown by generic code. [4]
+The proposal for Java generics was built upon two main principles, erasure and a type safety guarantee. Erasure ensures that at compile time the Java byte code has no generic information. At compile time, the generic information should have all been replaced by a parameterized type. Type safety guarantee ensures that if code compiles without any warnings, that code is deemed "type safe". This means that a ClassCastException will not be thrown by generic code. [4]
 
 The Java user community was pleased with the proposal of adding Generic Types to the Java programming language because they allow for more simple, concise code, and help prevent common bugs and type errors.
 
@@ -167,19 +143,19 @@ Draft Releases
 --------------
 The Expert Group develops the Specification through an iterative process, releasing drafts for public review and comments. A formal public review precedes a ballot held by the Executive Committee on whether the JSR should proceed to the Final Release stage. [1]
 
-Changes to the Java Language Specification (JLS) were made in the grammar of the langauge to facilitate C++ style template syntax, but with more advanced features such as polymorphism and generic derivations [3]. Changes to the API were made in the Java Collections Framework (JCF) to include support for Java Generics, and to the Class class to allow for safer reflection. Safer reflection is another implementation type safety, allowing less error-prone code.
+Changes to the Java Language Specification (JLS) were made in the grammar of the language to facilitate C++ style template syntax, but with more advanced features such as polymorphism and generic derivations [3]. Changes to the API were made in the Java Collections Framework (JCF) to include support for Java Generics, and to the Class `class` to allow for safer reflection. Safer reflection is another implementation type safety, allowing less error-prone code.
 
 Final Release
 -------------
 
 In the Final Release stage the Spec Lead submits the Specification to the Program Management Office for publication as the Proposed Final Draft. The Reference Implementation (RI) and Technology Compatibility Kit (TCK) must then be completed, and the RI pass the TCK. The Specification, RI, and TCK are then submitted to the Program Management Office, then to the Expert Committee for final approval [1]. The final release of JSR 14: Adding Generic types to Java, was released on September 30, 2004 [3].
 
-The main benifits that came from adding generic types are type safety, less explicit casts, and encouraged code resuse. Type safety guarantees that when code compiles without warnings, no implicit casts will throw an error. Less explicit casts need to be done because the programmer knows the type of the objects because they are not definined with the generic type. Finally code that uses generics is easier to reuse in many different applications, with less possibility of errors [4].
+The main benefits that came from adding generic types are type safety, less explicit casts, and encouraged code reuse. Type safety guarantees that when code compiles without warnings, no implicit casts will throw an error. Less explicit casts need to be done because the programmer knows the type of the objects because they are not defined with the generic type. Finally code that uses generics is easier to reuse in many different applications, with less possibility of errors [4].
 
 Although many good things came from the addition of generic types, the community found limitations in the way that Java generics were implemented. The first limitation was with formal type parameters, as shown in this example. The following code is supposed to declare a new object `example` of type T at construction time.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-public class example<T>{
+public class Example<T>{
     T thing = new T(); 
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -187,15 +163,15 @@ public class example<T>{
 This implementation is not allowed within Generics because the type T is not declared as a valid Object anywhere. Code that would correctly declare a new object `example` with type T using Generics:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-public class example<T>{
+public class Example<T>{
 	public T x;
-	public example(T a){
+	public Example(T a){
 		x = a;
 	}
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Another example of a limitation is Given a class called `Animal` that inherits from Object, and another class `Lion` that inherits from Object, it would be logical to allow `Lion` to also inhereit `Animal` (since lions are a subset of animals). The fourth line of the following code is incorrect:
+Another example of a limitation is Given a class called `Animal` that inherits from Object, and another class `Lion` that inherits from Object, it would be logical to allow `Lion` to also inherit `Animal` (since lions are a subset of animals). The fourth line of the following code is incorrect:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
 List<Lion> lion_list = new ArrayList<Lion>();
