@@ -1,17 +1,17 @@
-Java Generics
+Java Generics ** 1
 =============
 
 **Java Generics**
 
 By: Nic Broeking, Melissa Guba, Joshua Rahm
 
-What is a generic type?
+What is a generic type? ** 2
 =======================
 
 A Generic Type is a generic class or interface that is parameterized over types.
 
 
-What does this mean?
+What does this mean? ** 3
 ====================
 
 Example: implementation of a tuple class
@@ -20,22 +20,22 @@ Tuple of Integers:
 
 (5, 3)
 
-Tuple Class for Integers
+Tuple Class for Integers ** 4
 =====================
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-public class Tuple1{
+public class Tuple{
 	public Integer x;
 	public Integer y;
 
-	public Tuple1(Integer a, Integer b){
+	public IntegerTuple(Integer a, Integer b){
 		x = a;
 		y = b;
 	}
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Tuple of Double
+Tuple of Double ** 5
 ===============
 
 Tuple of Doubles:
@@ -43,15 +43,15 @@ Tuple of Doubles:
 (5.0, 3.5)
 
 
-Tuple Class for Doubles
+Tuple Class for Doubles ** 6
 ====================
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-public class Tuple2{
+public class DoubleTuple{
 	public Double x;
 	public Double y;
 
-	public Tuple2(Double a, Double b){
+	public DoubleTuple(Double a, Double b){
 		x = a;
 		y = b;
 	}
@@ -59,7 +59,7 @@ public class Tuple2{
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Generics
+Generics ** 7 
 ========
 
 Tuple of Characters:
@@ -67,7 +67,7 @@ Tuple of Characters:
 ("a", "b")
 
 
-A Generic Tuple
+A Generic Tuple ** 8
 ===============
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
@@ -75,7 +75,7 @@ public class Tuple<A, B>{
 	public A x;
 	public B y;
 
-	public Tuple1(A a, B b){
+	public Tuple(A a, B b){
 		x = a;
 		y = b;
 	}
@@ -83,39 +83,45 @@ public class Tuple<A, B>{
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Using a Generic Tuple
+Using a Generic Tuple ** 9
 =====================
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-tuple<Integer, Integer> Tuple1 = new tuple <Integer, Integer>();
-tuple<Double, Integer> Tuple2 = new tuple <Double, Integer>();
+Tuple<Integer, Integer> tuple1 = new Tuple <Integer, Integer>();
+Tuple<Tomato, SuspenspensionBridge> tuple2 = new Tuple<Tomato, SuspenspensionBridge>();
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Proposal
+Proposal ** 10
 ========
 
 * Type Safety Guaruntee
 * Erasure
 
-
-
-Final Release
+Erasure
 =============
-SOMETHING
+Type parameters are completely
+removed by the compiler, and formal
+type parameters are replaced by their
+bound.
 
-
-Positive Community Response
+Type Safety Guarantee
 ===========================
 **Type Safety**
 
 ClassCastException
+
+Type Safety Guarantee
+---------------------
+"If your entire application compiles without warnings,
+then it is type-safe."
 
 
 Positive Community Response
 ===========================
 **Less explicit casts**
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
 ArrayList<Integer> array = new ArrayList<Integer>();
 array.add(5);
 Integer x = array.get(0);
@@ -126,11 +132,14 @@ ArrayList array = new ArrayList();
 array.add(5);
 Integer x = (Integer) array.get(0);
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Positive Community Response
 ===========================
 **Encouraged Code Reusue**
 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
 public class Tuple<A, B>{
 	public A x;
 	public B y;
@@ -140,6 +149,7 @@ public class Tuple<A, B>{
 		y = b;
 	}
 }
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 Negative Community Response
@@ -162,10 +172,10 @@ Negative Community Response
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
 List<Dog> doglist = new ArrayList<Dog>();
 
-doglist.add("Dalmation");
-doglist.add("Lab");
+doglist.add( new Dog("Dalmation") );
+doglist.add( new Dog("Lab") );
 
-List<Animals> animallist = doglist; // ERROR
+List<Animals> animallist = doglist; // COMPILE PUKE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Negative Community Response
@@ -192,9 +202,9 @@ Maintenance - later changes and consequences of the specification
 Conclusion
 ==========
 
-Short note about generics
+Generics revolutionized the Java Programming Language.
 
-What we learned about specification process
+They brought a much needed feature to a great language!
 
 Resources
 =========
