@@ -24,13 +24,13 @@ We would write a tuple class of Integers.
 A Integer tuple Class
 =====================
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Java
 public class Tuple1
 {
 	public Integer x;
 	public Integer y;
 
-	tuple1(Integer a, Integer b)
+	public Tuple1(Integer a, Integer b)
 	{
 		x = a;
 		y = b;
@@ -48,13 +48,13 @@ So we have to write a whole new class of Tuples that allow for Doubles.
 A Double tuple Class
 ====================
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Java
 public class Tuple2
 {
 	public Double x;
 	public Double y;
 
-	tuple1(Double a, Double b)
+	public Tuple2(Double a, Double b)
 	{
 		x = a;
 		y = b;
@@ -74,13 +74,13 @@ This generic class would allow us to decide the types when we use the tuple.
 A Generic Tuple
 ===============
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-public class Tuple<a, b>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Java
+public class Tuple<A, B>
 {
 	public A x;
 	public B y;
 
-	tuple1(A a, B b)
+	public Tuple1(A a, B b)
 	{
 		x = a;
 		y = b;
@@ -93,48 +93,48 @@ This allows us to create this class and then allow us to set A, and B when we cr
 Using a Generic Tuple
 =====================
 
-Instead of using the different tuples we declaire the type of the tuple
+Instead of using the different tuples we declare the type of the tuple
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-tuple<Integer, Integer> myTuple = new tuple<Integer, Integer>();
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Java
+Tuple<Integer, Integer> myTuple = new Tuple<Integer, Integer>();
 
-tuple< Double, Integer > myTuple2 = new tuple < Double, Integer>();
+Tuple< Double, Integer > myTuple2 = new Tuple < Double, Integer>();
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Proposal
 ========
 
-Sun Microsystems relized the problem here and created JSR 14: Adding Generics to the Java Programming Language
+Sun Microsystems realized the problem here and created JSR 14: Adding Generics to the Java Programming Language
 
 They wanted to create a class that allowed for:
-* the ability to create a class without declairing the types
+* the ability to create a class without declaring the types
 * the ability to create container classes that could hold any type
 
 Final Release
 =============
 
-Changed java language spec to add c++ style template syntax.
+Changed Java language spec to add C++ style template syntax.
 
-Expanded the java collections api to include genericized types.
+Expanded the Java collections API to include genericized types.
 
-Modified reflextions api to take advatage of generics. 
+Modified Reflections API to take advantage of generics. 
 
 
-Positive Community Responce
+Positive Community Response
 ===========================
 
 **Type Safety**
 
-If the code compiles without warnings you are gaurteneed that you will not throw a casting error. Unless you explicitly try and cast an object.
+If the code compiles without warnings you are guaranteed that you will not throw a casting error. Unless you explicitly try and cast an object.
 
-Positive Community Responce
+Positive Community Response
 ===========================
 
 **Less explicit casts**
 
 Generic types are all implicit casts
 
-With the addition of Generic types there are less explict casts because you don't have to cast to a specific type to use contaner type classes.
+With the addition of Generic types there are less explicit casts because you don't have to cast to a specific type to use contaner type classes.
 
 Positive Community Response
 ===========================
@@ -143,7 +143,7 @@ Positive Community Response
 
 Instead of having create new classes for each type of object.
 
-Instead you can create one genericed class.
+Instead you can create one genericized class.
 
 It is more efficient and creates a smaller code base.
 
@@ -154,11 +154,11 @@ Negative Community Response
 
 **Formal Type Parameters**
 
-~~~~~~~~~~~~~~~java
+~~~~~~~~~~~~~~~Java
 public class Example<T>
 {
 	private T x;
-	public example()
+	public Example()
 	{
 		x = new T();
 	}
@@ -171,29 +171,29 @@ Negative Community Response
 
 **Hiearchy of parameterized types**
 
-~~~~~~~~~~~~~~~~~~~java
+~~~~~~~~~~~~~~~~~~~Java
 
 List<Dog> ls = new ArrayList<Dog>();
 
-ls.add("Dalmation");
-ls.add("Lab");
+ls.add( new Dog("Dalmatian") );
+ls.add( new Dog("Lab") );
 
 List<Animals> lo = ls; // Throws ERROR
 
 ~~~~~~~~~~~~~~~~~~~
 
-Negative Community Respose
+Negative Community Response
 ==========================
 
 **No Primatives**
 
-~~~~~~~~~~java
+~~~~~~~~~~Java
 
 List<int> ls = new ArrayList<int>();
 
 ~~~~~~~~~~
 
-Adds a layer of inefficency
+Adds a layer of inefficiency
 
 If you want a list of plain ints you cant have it.
 
@@ -203,7 +203,7 @@ Slide 18
 Slide 19
 ========
 
-Conclution
+Conclusion
 ==========
 
 
