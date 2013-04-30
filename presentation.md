@@ -8,30 +8,27 @@ By: Nic Broeking, Melissa Guba, Joshua Rahm
 What is a generic type?
 =======================
 
-A generic type by definition is a generic class or interface that is parameterized over types.
+A Generic Type is a generic class or interface that is parameterized over types.
 
-In other words it is a class where you define the type of the member variables when you create the object.
 
 What does this mean?
 ====================
 
-Lets say we want a tuple class.
+Example: implementation of a tuple class
 
-But at first we want a tuple of two Integers: ( 5, 3 )
+Tuple of Integers:
 
-We would write a tuple class of Integers. 
+(5, 3)
 
-A Integer tuple Class
+Tuple Class for Integers
 =====================
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-class tuple1
-{
+public class Tuple1{
 	public Integer x;
 	public Integer y;
 
-	tuple1(Integer a, Integer b)
-	{
+	public Tuple1(Integer a, Integer b){
 		x = a;
 		y = b;
 	}
@@ -41,170 +38,175 @@ class tuple1
 Tuple of Double
 ===============
 
-But after a while we relize we also need a tuple of Doubles and we want to return ( 5.0, 3.5)
+Tuple of Doubles:
 
-So we have to write a whole new class of Tuples that allow for Doubles. 
+(5.0, 3.5)
 
-A Double tuple Class
+
+Tuple Class for Doubles
 ====================
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-class tuple2
-{
+public class Tuple2{
 	public Double x;
 	public Double y;
 
-	tuple1(Double a, Double b)
-	{
+	public Tuple2(Double a, Double b){
 		x = a;
 		y = b;
 	}
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-But then we decide we need a tuple of different Objects. So more tuple classes!!!
 
 Generics
 ========
 
-Instead of creating more tuple classes we want a generic class. 
+Tuple of Characters:
 
-This generic class would allow us to decide the types when we use the tuple.
+("a", "b")
+
 
 A Generic Tuple
 ===============
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-class tuple<A, B>
-{
+public class Tuple<A, B>{
 	public A x;
 	public B y;
 
-	tuple1(A a, B b)
-	{
+	public Tuple1(A a, B b){
 		x = a;
 		y = b;
 	}
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This allows us to create this class and then allow us to set A, and B when we create the objects.
 
 Using a Generic Tuple
 =====================
 
-Instead of using the different tuples we declaire the type of the tuple
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
+tuple<Integer, Integer> Tuple1 = new tuple <Integer, Integer>();
+tuple<Double, Integer> Tuple2 = new tuple <Double, Integer>();
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-tuple<Integer, Integer> myTuple = new tuple<Integer, Integer>();
-
-tuple< Double, Integer > myTuple2 = new tuple < Double, Integer>();
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Proposal
 ========
 
-Sun Microsystems relized the problem here and created JSR 14: Adding Generics to the Java Programming Language
+* Type Safety Guaruntee
+* Erasure
 
-They wanted to create a class that allowed for:
-* the ability to create a class without declairing the types
-* the ability to create container classes that could hold any type
+
 
 Final Release
 =============
+SOMETHING
 
-Changed java language spec to add c++ style template syntax.
-
-Expanded the java collections api to include genericized types.
-
-Modified reflextions api to take advatage of generics. 
-
-
-Positive Community Responce
-===========================
-
-**Type Safety**
-
-If the code compiles without warnings you are gaurteneed that you will not throw a casting error. Unless you explicitly try and cast an object.
-
-Positive Community Responce
-===========================
-
-**Less explicit casts**
-
-Generic types are all implicit casts
-
-With the addition of Generic types there are less explict casts because you don't have to cast to a specific type to use contaner type classes.
 
 Positive Community Response
 ===========================
+**Type Safety**
 
-**Encourages Code Reusue**
+ClassCastException
 
-Instead of having create new classes for each type of object.
 
-Instead you can create one genericed class.
-
-It is more efficient and creates a smaller code base.
-
-If you make a change it is universal.
-
-Negative Community Response
+Positive Community Response
 ===========================
+**Less explicit casts**
 
-**Formal Type Parameters**
+ArrayList<Integer> array = new ArrayList<Integer>();
+array.add(5);
+Integer x = array.get(0);
 
-~~~~~~~~~~~~~~~java
-public class example<T>
-{
-	private T x;
-	public example()
-	{
-		x = new T();
+vs
+
+ArrayList array = new ArrayList();
+array.add(5);
+Integer x = (Integer) array.get(0);
+
+
+Positive Community Response
+===========================
+**Encouraged Code Reusue**
+
+public class Tuple<A, B>{
+	public A x;
+	public B y;
+
+	public Tuple1(A a, B b){
+		x = a;
+		y = b;
 	}
 }
 
-~~~~~~~~~~~~~~~~
 
 Negative Community Response
 ===========================
+**Formal Type Parameters**
 
-**Hiearchy of parameterized types**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
+public class Example<T>{
+	private T x;
+	public Example(){
+		x = new T();
+	}
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-~~~~~~~~~~~~~~~~~~~java
+Negative Community Response
+===========================
+**Hierarchy of parameterized types**
 
-List<Dog> ls = new ArrayList<Dog>();
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
+List<Dog> doglist = new ArrayList<Dog>();
 
-ls.add("Dalmation");
-ls.add("Lab");
+doglist.add("Dalmation");
+doglist.add("Lab");
 
-List<Animals> lo = ls; // Throws ERROR
+List<Animals> animallist = doglist; // ERROR
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-~~~~~~~~~~~~~~~~~~~
-
-Negative Community Respose
+Negative Community Response
 ==========================
+**No Primitives**
 
-**No Primatives**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
+List<int> list = new ArrayList<int>();
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-~~~~~~~~~~java
 
-List<int> ls = new ArrayList<int>();
+The JSR Process
+===============
 
-~~~~~~~~~~
+Initiation - introduction of problem/idea for improvement
 
-Adds a layer of inefficency
+Draft Releases - implementation of specification is discussed and modifications are made
 
-If you want a list of plain ints you cant have it.
+Final Release - when the specification is introduced into Java
 
-Slide 18
-========
+Maintenance - later changes and consequences of the specification
 
-Slide 19
-========
 
-Conclution
+Conclusion
 ==========
+
+Short note about generics
+
+What we learned about specification process
+
+Resources
+=========
+The JSR process - http://jcp.org/aboutJava/communityprocess/final/jsr355/JCP-2.9-Final-clean.pdf
+
+Java Community Process - http://jcp.org/en/home/index
+
+Java Generic Types JSR - http://jcp.org/en/jsr/detail?id=14
+
+Limitations and Benefits - http://eyalsch.wordpress.com/tag/jsr-14/
+
+Reified Generics JSR - http://tech.puredanger.com/java7#reified
 
 
 
